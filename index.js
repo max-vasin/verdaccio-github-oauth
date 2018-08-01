@@ -77,8 +77,8 @@ function authenticate(config, stuff, user, accessToken, cb) {
 }
 
 function middlewares(config, stuff, app, auth, storage) {
-  var clientId = config['client-id'];
-  var clientSecret = config['client-secret'];
+  var clientId = config['client-id'] || process.env[config['client-id-env']];
+  var clientSecret = config['client-secret'] || process.env[config['client-secret-env']];
   var gitHostname = config['git-hostname'] || 'github.com';
   var apiUrl = config['git-hostname'] ? config['git-hostname'] : 'api.github.com';
   var apiPath = config['git-hostname'] ? '/api/v3/user' : '/user';

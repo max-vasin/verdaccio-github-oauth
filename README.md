@@ -26,6 +26,15 @@ auth:
     cache-ttl-ms: 60000 # default to 30s if not present
 ```
 
+Or you can specify an environment variables for your github app client id and secret:
+
+```yaml
+middlewares:
+  github-oauth:
+    client-id-env: GITHUB_CLIENT_ID_ENV_VAR_NAME
+    client-secret-env: GITHUB_SECRET_ENV_VAR_NAME
+```
+
 ## Run
 `$ verdaccio -c /path/to/config.yaml -l 0.0.0.0:4873`
 
